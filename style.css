@@ -1,0 +1,431 @@
+
+/* ========================================
+   BASIC RESET
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+
+  background: linear-gradient(
+    135deg,
+    #e0f2fe,
+    #f8fafc
+  );
+
+  color: #1e293b;
+}
+
+/* ========================================
+   MAIN GAME CONTAINER
+======================================== */
+
+.game-container {
+  width: min(92%, 700px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.game-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  color: #2563eb;
+}
+
+h1 {
+  margin: 0;
+
+  font-size: clamp(28px, 5vw, 42px);
+  color: #0f172a;
+}
+
+.subtitle {
+  margin-top: 12px;
+
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* ========================================
+   SCORE AND TIMER
+======================================== */
+
+.game-stats {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.stat-card {
+  min-width: 0;
+  padding: 15px 8px;
+  font-size: 24px;
+}
+
+@media (max-width: 500px) {
+
+  .game-stats {
+    gap: 6px;
+  }
+
+  .stat-card {
+    padding: 12px 4px;
+    font-size: 19px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+  }
+
+}
+
+/* ========================================
+   GAME MESSAGE
+======================================== */
+
+.message {
+  min-height: 24px;
+
+  margin: 15px 0;
+
+  text-align: center;
+
+  font-size: 14px;
+  color: #475569;
+}
+
+/* ========================================
+   GAMEBOARD
+======================================== */
+
+.gameboard {
+  position: relative;
+
+  width: 100%;
+  height: 360px;
+
+  overflow: hidden;
+
+  border: 4px solid #bfdbfe;
+  border-radius: 20px;
+
+  background-color: #eff6ff;
+
+  background-image:
+    radial-gradient(#bfdbfe 1px, transparent 1px);
+
+  background-size: 20px 20px;
+
+  box-shadow:
+    inset 0 0 30px rgba(59, 130, 246, 0.06);
+}
+
+/* ========================================
+   START PROMPT
+======================================== */
+
+.start-prompt {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 85%;
+
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+
+.prompt-icon {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 48px;
+}
+
+.start-prompt h2 {
+  margin: 8px 0;
+
+  color: #1e40af;
+  font-size: 24px;
+}
+
+.start-prompt p {
+  margin: 0;
+
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ========================================
+   WATER DROPS
+======================================== */
+
+.water-drop {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #3b82f6;
+
+  font-size: 27px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.25);
+
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.water-drop:hover {
+  transform: scale(1.15);
+
+  background-color: #2563eb;
+}
+
+.water-drop:focus-visible {
+  outline: 4px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+
+/* ========================================
+   GOLDEN WATER DROPS
+======================================== */
+
+.golden-drop {
+  background: #f59e0b;
+
+  box-shadow:
+    0 4px 12px rgba(245, 158, 11, 0.4);
+
+  border: 2px solid #fbbf24;
+}
+
+.golden-drop:hover {
+  background: #d97706;
+}
+
+/* Golden drop sparkle effect */
+.golden-drop::after {
+  content: "✨";
+
+  position: absolute;
+
+  top: -12px;
+  right: -12px;
+
+  font-size: 14px;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  margin-top: 22px;
+}
+
+.game-button {
+  padding: 13px 25px;
+
+  border: none;
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.game-button:hover {
+  transform: translateY(-2px);
+}
+
+.game-button:active {
+  transform: translateY(0);
+}
+
+.game-button:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+.primary-button {
+  background: #2563eb;
+  color: white;
+}
+
+.secondary-button {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.game-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+
+/* ========================================
+   SOUND BUTTON
+======================================== */
+
+.sound-button {
+  background: #e0f2fe;
+  color: #1e40af;
+}
+
+.sound-button.muted {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+/* ========================================
+   HIGH SCORE MESSAGE
+======================================== */
+
+.high-score-message {
+  margin: 10px 0;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #d97706;
+}
+
+/* ========================================
+   END SCREEN
+======================================== */
+
+.end-screen {
+  margin-top: 25px;
+
+  padding: 30px 20px;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px solid #dbeafe;
+  border-radius: 20px;
+
+  box-shadow: 0 4px 20px rgba(30, 64, 175, 0.08);
+}
+
+.end-icon {
+  font-size: 45px;
+}
+
+.end-screen h2 {
+  margin: 12px 0;
+
+  color: #1e40af;
+}
+
+.end-screen p {
+  line-height: 1.6;
+}
+
+.impact-message {
+  max-width: 450px;
+
+  margin: 15px auto;
+
+  color: #64748b;
+  font-size: 14px;
+}
+
+.learn-link {
+  display: inline-block;
+
+  margin-top: 10px;
+
+  color: #2563eb;
+
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.learn-link:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   UTILITY CLASS
+======================================== */
+
+.hidden {
+  display: none;
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+======================================== */
+
+@media (max-width: 500px) {
+
+  .game-container {
+    padding: 25px 0;
+  }
+
+  .gameboard {
+    height: 320px;
+  }
+
+  .stat-card {
+    padding: 14px;
+    font-size: 24px;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+
+  .game-button {
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Makes the game work well on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Water Drop Dash</title>
+
+  <!-- Connect our CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="game-container">
+
+    <!-- Game title -->
+    <header class="game-header">
+      <p class="eyebrow">EVERY DROP COUNTS</p>
+      <h1>💧 Water Drop Dash</h1>
+      <p class="subtitle">
+        Collect clean water drops before time runs out!
+      </p>
+    </header>
+
+    <!-- Score and timer -->
+    <section class="game-stats" aria-label="Game statistics">
+
+  <div class="stat-card">
+    <span class="stat-label">SCORE</span>
+    <span id="score">0</span>
+  </div>
+
+  <div class="stat-card">
+    <span class="stat-label">HIGH SCORE</span>
+    <span id="highScore">0</span>
+  </div>
+
+  <div class="stat-card">
+    <span class="stat-label">TIME LEFT</span>
+    <span><span id="timer">30</span>s</span>
+  </div>
+
+</section>
+
+    <!-- Game instructions -->
+    <p id="message" class="message" aria-live="polite">
+      Press Start Game to begin!
+    </p>
+
+    <!-- Gameboard -->
+    <section
+      id="gameboard"
+      class="gameboard"
+      aria-label="Water drop gameboard"
+    >
+      <div id="start-prompt" class="start-prompt">
+        <span class="prompt-icon">💧</span>
+        <h2>Ready to collect?</h2>
+        <p>Click the start button to begin your challenge.</p>
+      </div>
+    </section>
+
+    <!-- Game buttons -->
+    <div class="button-container">
+
+  <button id="startBtn" class="game-button primary-button">
+    Start Game
+  </button>
+
+  <button id="restartBtn" class="game-button secondary-button">
+    Restart
+  </button>
+
+  <button
+    id="soundBtn"
+    class="game-button sound-button"
+    aria-pressed="false"
+  >
+    🔊 Sound On
+  </button>
+
+</div>
+
+  
+<!-- Final score screen -->
+<section id="end-screen" class="end-screen hidden" aria-live="polite">
+
+  <div class="end-icon">🌍</div>
+
+  <h2>Great job, Water Collector!</h2>
+
+  <p id="final-score">You collected 0 points!</p>
+
+  <p id="high-score-message" class="high-score-message"></p>
+
+  <p class="impact-message">
+    Every drop counts. Learn more about clean water access
+    and charity: water's mission.
+  </p>
+
+  <a
+    href="https://www.charitywater.org/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="learn-link"
+  >
+    Learn more about charity: water →
+  </a>
+
+</section>
+
+  </main>
+
+  <!-- Connect our JavaScript file -->
+  <script src="script.js"></script>
+
+</body>
+</html>
